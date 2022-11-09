@@ -13,6 +13,7 @@ namespace WebAppEF_CodeFirst.Models
 
         }
         public DbSet<Batch> Batches { get; set; }
-
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

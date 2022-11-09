@@ -10,7 +10,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WebAppEF_CodeFirst.Models;
-
+using WebAppEF_CodeFirst.IRepository;
+using WebAppEF_CodeFirst.Repository;
 namespace WebAppEF_CodeFirst
 {
     public class Startup
@@ -26,6 +27,10 @@ namespace WebAppEF_CodeFirst
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IBatchRepository,BatchRepository>();
+            services.AddScoped<ICourseRepository, CourseRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+
             services.AddDbContext<BatchDbContext>(op => op.UseSqlServer(Configuration["ConnectionStrings:BatchDbContext"]));  
         }
 
